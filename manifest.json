@@ -1,0 +1,25 @@
+{
+  "name": "JoomlaShine User Detector",
+  "description": "Detect if a website is using JoomlaShine 's extenstions and templates",
+  "version": "1.0",
+  "permissions": [
+    "tabs"
+  ],
+  "browser_action": {
+      "default_title": "JoomlaShine",
+      "default_icon": "joomlashine.png",
+      "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "joomlashine.png",
+    "48": "joomlashine.png",
+    "128": "joomlashine.png"
+  },
+  "web_accessible_resources": [
+    "loading.gif","checked.png"
+    ],
+  "background":{
+    "scripts": ["background.js"]
+  },
+  "manifest_version": 2
+}
