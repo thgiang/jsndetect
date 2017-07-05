@@ -5,6 +5,7 @@ $(document).ready(function(){
     var domain = '';
     var found = false;
     var finalDomain = '';
+    var finalDomainNPTC = '';
     findDomainRoot();
     function findDomainRoot()
     {
@@ -38,6 +39,7 @@ $(document).ready(function(){
                                 if (data === "HTTP/1.1 200 OK" && !found)
                                 {
                                     found = true;
+                                    finalDomainNPTC = res[2];
                                     finalDomain = domain;
                                 }
                             }
@@ -58,11 +60,11 @@ $(document).ready(function(){
     }
 
     function checkUsingTpl() {
-        chrome.storage.local.get("template", function(data) {
-            if(typeof data.template === "undefined" || data.template === null) {
+        chrome.storage.local.get(finalDomainNPTC, function(data) {
+            if(typeof data[finalDomainNPTC] === "undefined" || data[finalDomainNPTC] === null) {
                 $('#jsn_detector_template').html('No template found');
             } else {
-                $('#jsn_detector_template').html('<div style="clear: both"><img src="checked.png" height="15px" width="15px" style="float: left"/>&nbsp;'+data.template.toUpperCase()+' is installed!</div>');
+                $('#jsn_detector_template').html('<div style="clear: both"><img src="checked.png" height="15px" width="15px" style="float: left"/>&nbsp;'+data[finalDomainNPTC].toUpperCase()+' is installed!</div>');
             }
         });
     }
