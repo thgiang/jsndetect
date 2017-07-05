@@ -51,7 +51,7 @@ $(document).ready(function(){
                 console.log('Domain: '+finalDomain);
                 checkUsingTpl();
                 extensions.forEach(function(e){
-                    url = finalDomain +'components/com_'+e+'/index.html';
+                    url = finalDomain +'language/en-GB/en-GB.com_'+e+'.ini';
                     console.log("Checking: "+ url);
                     checkIssetExt(url, e, '#jsn_detector_extension', 'extension');
                 });
